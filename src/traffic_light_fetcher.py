@@ -17,15 +17,15 @@ tf.disable_v2_behavior()
 class traffic_light_fetcher_node:
 
     def __init__(self):
-        self.model_location = rospy.get_param("~model_location")
+        model_location = rospy.get_param("~model_location")
         # Initializing TensorFlow
 
-        with tf.gfile.FastGFile(self.model_location, 'rb') as f:
-            self.graph_def = tf.GraphDef()
-            self.graph_def.ParseFromString(f.read())
+        with tf.gfile.FastGFile(model_location, 'rb') as f:
+            graph_def = tf.GraphDef()
+            graph_def.ParseFromString(f.read())
         self.sess = tf.Session()
         self.sess.graph.as_default()
-        tf.import_graph_def(self.graph_def, name='')
+        tf.import_graph_def(graph_def, name='')
 
         # Giving TensorFlow some time to initialize before declaring subscribers
         rospy.sleep(5.0)
@@ -54,9 +54,7 @@ class traffic_light_fetcher_node:
           # Read and preprocess an image.
         rows = img.shape[0]
         cols = img.shape[1]
-
         inp = cv.resize(img, (640, 360))
-
         inp = inp[:, :, [2, 1, 0]]  # BGR2RGB
 
         # Run the model

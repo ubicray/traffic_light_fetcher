@@ -1,0 +1,57 @@
+# vscode
+.vscode
+run-clang-format.py
+
+# Workspace ignores
+/build/
+/bundle/
+/install/
+/devel/
+/logs/
+/log/
+/.catkin_tools/
+!/.catkin_tools/**/config.yaml
+/build_debug/
+/devel_debug/
+
+
+# clion
+.idea
+cmake-build-*
+
+# Data
+*.bag
+*.pdf
+
+# Compressed files
+*.zip
+*.gz
+
+# Multimedia
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.bmp
+*.gif
+*.tif
+
+# Compiled things
+*.pyc
+*.gch
+*.o
+*.so
+
+# ML stuff
+*.mat
+*.caffemodel
+*.pkl
+*.uff
+*.pb
+
+# 3D
+*.stl
+*.dae
+*.wings
+*.tga
+*.world

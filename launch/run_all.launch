@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-     <arg name="model_location" default="$(find traffic_light_fetcher)/src/frozen_inference_graph.pb"/>
+     <arg name="model_location" default="$(find traffic_light_fetcher)/include/trained_model.pb"/>
 
      <include file="$(find traffic_light_fetcher)/launch/video_streamer.launch"></include>
 
